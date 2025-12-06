@@ -1,5 +1,4 @@
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
   background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
@@ -15,8 +14,36 @@
   position: relative;
   block-size: 100vh;
   min-block-size: 668px;
-  padding: var(--main-padding);
+  padding: 10px;
   margin-block-end: 30px;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  block-size: 25px;
+  inline-size: 25px;
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  block-size: 25px;
+  inline-size: 25px;
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .header__theme-menu-button {
@@ -26,32 +53,37 @@
   font-size: var(--main-font-size);
   font-family: var(--main-font-family);
   padding: 1.5px 13px;
-  line-height: 18px;
-}
-
-.header__theme-menu-item {
+  line-height: 25px;
   color: var(--accent-color);
 }
 
-.header__element {
-  position: absolute;
-  top: 10px;
-  right: 19px;
-  color: var(--accent-color);
-  font-family: var(--main-font-family);
-  font-size: var(--main-font-size);
+.header__theme-menu-button:hover {
+  border: 1px solid rgba(255, 0, 112, 0.4);
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--accent-color);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
 }
 
 .header__title {
   justify-self: start;
-  color: #db00ff;
   text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.title {
+  color: #db00ff;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 82.5%;
   font-family: var(--main-font-family);
 }
 
-.header__text-item {
+.header__text {
   font-family: var(--main-font-family);
   font-weight: 700;
   font-size: var(--main-font-size);
@@ -59,65 +91,212 @@
 
 .title-decor {
   background-color: var(--accent-color);
-  color: var(--bg-color);
-  inline-size: 100%;
+  color: var(--title-text-color);
 }
 
 .main {
   display: grid;
-  grid-template-rows: repeat(3, min-content);
   gap: 50px;
-  padding: var(--main-padding);
+  padding: 10px;
 }
 
-.section {
+.section__content {
   display: grid;
-  grid-template-rows: repeat(3, min-content);
   gap: 20px;
 }
 
-.section__card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.section__title {
+.section__content-title {
   color: var(--accent-color);
   font-family: var(--main-font-family);
   font-size: var(--main-font-size);
 }
 
-.section__card-title {
-  font-family: var(--main-font-family);
-  font-size: var(--main-font-size);
+.cards {
+  display: grid;
+  gap: 20px;
 }
 
-.section__card-text {
+.card {
+  display: grid;
+  gap: 10px;
+}
+
+.card-title {
+  font-family: var(--main-font-family);
+  font-weight: 700;
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+}
+
+.card-text {
   font-family: var(--main-font-family);
   font-size: var(--main-font-size);
   color: var(--section-text-color);
-  line-height: 23.4px;
+  line-height: var(--main-line-height);
 }
 
-.section__card-subtitle {
+.section__content-main-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section__content-subtitle {
+  font-family: var(--main-font-family);
+  font-weight: 700;
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  color: #000028;
+}
+
+.card-title-advice {
   font-family: var(--main-font-family);
   font-weight: 400;
   font-size: var(--main-font-size);
-  line-height: 23.4px;
+  line-height: var(--main-line-height);
 }
 
-.section__card-text-link {
+.card-text-link {
   border: none;
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.section__card-text-link:hover {
+.card-text-link:hover {
   text-decoration: underline;
 }
 
-.section__card-text-link:focus {
+.card-text-link:focus {
   border: none;
   outline: 1px solid var(--section-text-color);
+}
+
+.section__gallery {
+  display: grid;
+  inline-size: 100%;
+  gap: 10px;
+}
+
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__image {
+  inline-size: 100%;
+}
+
+.footer {
+  display: flex;
+  position: relative;
+  block-size: 100vh;
+  min-block-size: 375px;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: 30px;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (width >= 768px) {
+  .header {
+    padding: 20px 20px 20px 0px;
+    margin-block-end: 40px;
+  }
+
+  .header__text {
+    justify-self: end;
+    max-width: 364px;
+  }
+
+  .main {
+    padding: 20px;
+    gap: 80px;
+  }
+
+  .section__content {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section__title {
+    grid-row-start: 1;
+    grid-row-end: auto;
+  }
+
+  .cards {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .reasons-title {
+    inline-size: calc(100% / 4);
+  }
+
+  .section__gallery {
+    gap: 20px;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .sunset-img {
+    grid-column: span 2;
+  }
+
+  .ice-cream-img {
+    grid-column-start: 3;
+    grid-column-end: auto;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .tape-img {
+    block-size: 100%;
+    object-fit: cover;
+    grid-row-start: 2;
+    grid-row-end: 4;
+  }
+
+  .street-img {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    align-self: start;
+    justify-self: center;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__text {
+    /* inline-size: 50; */
+  }
+
+  .reasons-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
 }

@@ -2,8 +2,9 @@
   --bg-image: url(../images/cover-image-dark.png);
   --accent-color: #ff0070;
   --section-text-color: #f1b2ce;
+  --title-text-color: #000028;
   --bg-color: #000028;
   --main-font-family: 'IBM Plex mono', sans-serif;
-  --main-padding: 10px;
   --main-font-size: 18px;
+  --main-line-height: 23.4px;
 }
