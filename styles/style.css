@@ -353,6 +353,7 @@
 
   .header__theme-menu-list {
     flex-direction: row;
+    margin-inline-start: 20px;
   }
 
   .header__title {
