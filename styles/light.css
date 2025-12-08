@@ -7,6 +7,7 @@
   --text-title-color: #353430;
   --section-text-color: #353430;
   --border-color: #353430;
+  --button-hover-color: rgba(50, 49, 45, 0.4);
 
 }
 
@@ -20,5 +21,6 @@
     --text-title-color: #353430;
     --section-text-color: #353430;
     --border-color: #353430;
+    --button-hover-color: rgba(50, 49, 45, 0.4);
   }
 }
